@@ -7,7 +7,7 @@ import java.util.Scanner;
         Random r = new Random();
         boolean fighting = true;
         Scanner sc = new Scanner(System.in);
-        Character gameCharacter = new Character("empty", 25, 500);
+        Character gameCharacter = new Character("empty", 0, 500);
         ArrayList<String> list = new ArrayList<>();
         ArrayList<Item> itemsToGet = new ArrayList<>();
         ArrayList<Enemy> enemyToFight = new ArrayList<>();
@@ -37,7 +37,7 @@ import java.util.Scanner;
             System.out.println("Character stats: \n" + gameCharacter.toString());
             System.out.println("");
             setLevel();
-            System.out.println("Welcome to the Action Game!\nYou have lost your family so you will need to find and rescue them!");
+            System.out.println("Welcome to the Action Game!\nYou just lost your family, you have to find them and save them from the person who kidnapped them.!");
             System.out.println("");
             stageOne();
             stageTwo();
@@ -70,21 +70,21 @@ import java.util.Scanner;
             switch (level) {
                 case "Easy":
                     System.out.println("You selected Easy Mode!");
-                    enemyGame.setAttack(9);
-                    enemyGame.setHp(50);
-                    vampire.setAttack(15);
-                    vampire.setHp(70);
-                    mystery.setHp(800);
+                    enemyGame.setAttack(10);
+                    enemyGame.setHp(55);
+                    vampire.setAttack(18);
+                    vampire.setHp(80);
+                    mystery.setHp(600);
                     mystery.setAttack(50);
                     System.out.println("");
                     break;
                 case "Medium":
                     System.out.println("You selected Medium Mode!");
-                    enemyGame.setAttack(10);
-                    enemyGame.setHp(60);
-                    vampire.setAttack(20);
-                    vampire.setHp(80);
-                    mystery.setHp(1200);
+                    enemyGame.setAttack(13);
+                    enemyGame.setHp(65);
+                    vampire.setAttack(24);
+                    vampire.setHp(90);
+                    mystery.setHp(800);
                     mystery.setAttack(75);
                     System.out.println("");
                     break;
@@ -94,7 +94,7 @@ import java.util.Scanner;
                     enemyGame.setHp(100);
                     vampire.setAttack(30);
                     vampire.setHp(150);
-                    mystery.setHp(1700);
+                    mystery.setHp(1500);
                     mystery.setAttack(100);
                     System.out.println("");
                     break;
@@ -109,7 +109,7 @@ import java.util.Scanner;
             list.add("Sit");
             list.add("Little walk");
             enemyToFight.add(enemyGame);
-            areaGame.setDescription("You are in a big jungle with many trees.");
+            areaGame.setDescription("You are in the middle of a large jungle with creatures and all kinds of plants.");
             areaGame.setName("Jungle");
             enemyGame.setName("Zombie");
             itemsToGet.add(knife);
@@ -140,6 +140,7 @@ import java.util.Scanner;
             list.add("Eat pear");
             action();
             System.out.println("");
+            System.out.println("STAGE ONE MISSION:");
             System.out.println("Your dog is in a big danger you need to rescue him immediately.\nIf you want to save him you need to guess this question:");
             stageOneMission();
             System.out.println("");
@@ -154,7 +155,7 @@ import java.util.Scanner;
             enemyToFight.remove(enemyGame);
             enemyToFight.add(vampire);
             areaGame.setName("Beach");
-            areaGame.setDescription("Big blue sea with many sharks and crocodiles.");
+            areaGame.setDescription("Big blue sea with sharks and crocodiles.");
             itemsToGet.add(potion);
             itemsToGet.add(slingshot);
             System.out.println("Your location now is: " + areaGame.toString() + "\n(Inspect area) to find the hidden secrets of the " + areaGame.getName() + ".");
@@ -196,6 +197,7 @@ import java.util.Scanner;
             list.remove("Pick up wooden sticks");
             list.remove("Make fire");
             System.out.println("");
+            System.out.println("STAGE TWO MISSION:");
             System.out.println("Your son is in a big danger you need to rescue him immediately.\nIf you want to save him you need to find the Pirate treasure chest");
             stageTwoMission();
             System.out.println("");
@@ -1149,6 +1151,7 @@ import java.util.Scanner;
                 fighting = false;
                 System.out.println(gameCharacter.getName() + " you have lost");
                 stageThreeMission();
+                gameCharacter.hp = 500;
             }
         }
         public void fight(Enemy enemy) {
@@ -1188,6 +1191,15 @@ import java.util.Scanner;
                 } else if (gameCharacter.hp <= 0) {
                     fighting = false;
                     System.out.println(gameCharacter.getName() + " you have lost.");
+                    if (areaGame.name.equals("Jungle")){
+                        fight(enemyGame);
+                        gameCharacter.hp = 500;
+                    } else if (areaGame.name.equals("Beach")){
+                        fight(vampire);
+                        gameCharacter.hp= 500;
+                    } else {
+
+                    }
                 }
             }
         }

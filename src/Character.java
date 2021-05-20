@@ -38,7 +38,7 @@ public void addItem(ArrayList<Item> items) {
 public void watchArea(ArrayList<Item> items, ArrayList<Enemy> enemy) {
     if (items.size() == 1) {
         System.out.println("You are inspecting the area...");
-        System.out.println("You found a " + items.get(0).getName() + ". Do you want to (Pick item)?. There is a " + enemy.get(0).name + " near by. ");
+        System.out.println("You found a " + items.get(0).getName() + ". Do you want to (Pick item)?. There is a " + enemy.get(0).name + " nearby. ");
     } else{
         System.out.println("You are inspecting the area...");
         System.out.println("You found a " + items.get(0).getName() + " and a " + items.get(1).getName() + ". Do you want to (Pick item)?. There is a " + enemy.get(0).name + " near. ");
@@ -49,7 +49,7 @@ public void removeItem(Item item){
         inventory.remove(item);
 }
 public void useKnife(ArrayList<Enemy> enemy){
-    enemy.get(0).hp-= 50;
+    enemy.get(0).hp-= 40;
     if (enemy.get(0).hp>0) {
         System.out.println("You have stubbed " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
     } else {
@@ -76,9 +76,9 @@ public void eat(Item item){
 public void useSlingshot(ArrayList<Enemy> enemy ){
     enemy.get(0).hp-= 10;
     if (enemy.get(0).hp>0) {
-        System.out.println("You have used the Slingshot " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
+        System.out.println("You have used the Slingshot " + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
     } else {
-        System.out.println("You have used the Slingshot " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is 0.");
+        System.out.println("You have used the Slingshot " +  "...The hp of " + enemy.get(0).name + " is 0.");
     }
 }
     public void attack(ArrayList<Enemy> enemy){
