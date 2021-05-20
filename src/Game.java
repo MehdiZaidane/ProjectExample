@@ -258,7 +258,7 @@ import java.util.Scanner;
                     System.out.println(gameCharacter.getName() + " is sitting.");
                     action();
                     break;
-                case "Little Walk":
+                case "Little walk":
                     System.out.println(gameCharacter.getName() + " is walking.");
                     action();
                     break;
@@ -272,6 +272,7 @@ import java.util.Scanner;
                     if (explosion.amount > 0) {
                         gameCharacter.useGrenade(explosion, mystery);
                         explosion.amount -= 1;
+                        list.remove("Use grenade");
                     } else {
                         System.out.println("You have no more grenades.");
                         list.remove("Use grenade");
@@ -303,9 +304,10 @@ import java.util.Scanner;
                     if (potion.amount > 0){
                         gameCharacter.usePotion(potion);
                         potion.amount -=1;
+                        list.remove("Use potion");
                     } else {
                         System.out.println("You have no more potions.");
-                        list.remove("Use potion");
+
                     }
 
                     break;
