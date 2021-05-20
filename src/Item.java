@@ -1,24 +1,20 @@
 public class Item {
-    String name, description;
+    String name;
+    int amount;
 
-    public void setName (String newName) {
-        this.name = newName;
-    }
-
-    public void setDescription (String newDescription) {
-        this.description = newDescription;
+    public Item(String n, int a){
+        this.name = n;
+        this.amount = a;
     }
 
     public String getName(){
         return name;
     }
-    public String getDescription(){
-        return description;
-    }
+
 
 
     @Override
     public String toString(){
-        return "Item name: " + name + "\nItem description: " + description;
+        return name;
 }
 }

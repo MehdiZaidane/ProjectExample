@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class Area {
     String name, description;
-    Item item;
-
 
 
     public String getName() {
@@ -14,17 +12,13 @@ public class Area {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
     @Override
     public String toString(){
-        return  name + ". Area description: " + description;
+        return  name + ". Description of the area: " + description;
     }
 
 }
