@@ -15,6 +15,7 @@ public Character(String n, int a, int h){
     this.hp = h;
 }
 
+//getter and setter
 public String getName() {
         return name;
     }
@@ -25,6 +26,9 @@ public void setName(String newName){
 public void setAge(int newAge){
     this.age = newAge;
 }
+
+
+// All character actions
 public void addItem(ArrayList<Item> items) {
     System.out.println("You have added the item to the inventory.");
     for (int i=0; i<items.size(); i++){
@@ -48,14 +52,6 @@ public void removeItem(Item item){
         System.out.println( item.getName() + " was removed from the inventory.");
         inventory.remove(item);
 }
-public void useKnife(ArrayList<Enemy> enemy){
-    enemy.get(0).hp-= 40;
-    if (enemy.get(0).hp>0) {
-        System.out.println("You have stubbed " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
-    } else {
-        System.out.println("You have stubbed " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is 0.");
-    }
-}
 public void inventory(){
     System.out.println("Inventory: " + inventory);
 }
@@ -73,18 +69,6 @@ public void eat(Item item){
         System.out.println(name + " hp now is " + hp);
         inventory.remove(item);
     }
-public void useSlingshot(ArrayList<Enemy> enemy ){
-    enemy.get(0).hp-= 10;
-    if (enemy.get(0).hp>0) {
-        System.out.println("You have used the Slingshot " + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
-    } else {
-        System.out.println("You have used the Slingshot " +  "...The hp of " + enemy.get(0).name + " is 0.");
-    }
-}
-    public void attack(ArrayList<Enemy> enemy){
-    enemy.get(0).hp = enemy.get(0).hp - attack;
-
-    }
     public void swim(Area area){
         System.out.println(name + " is swimming.");
         hp +=10;
@@ -94,6 +78,28 @@ public void useSlingshot(ArrayList<Enemy> enemy ){
         System.out.println("You are making the fire...");
         hp +=20;
         System.out.println("Congratulations you made the fire!\nYou restored 20 hp with the fire!");
+    }
+
+    // All the fighting methods
+    public void attack(ArrayList<Enemy> enemy){
+        enemy.get(0).hp = enemy.get(0).hp - attack;
+
+    }
+    public void useSlingshot(ArrayList<Enemy> enemy ){
+        enemy.get(0).hp-= 10;
+        if (enemy.get(0).hp>0) {
+            System.out.println("You have used the Slingshot " + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
+        } else {
+            System.out.println("You have used the Slingshot " +  "...The hp of " + enemy.get(0).name + " is 0.");
+        }
+    }
+    public void useKnife(ArrayList<Enemy> enemy){
+        enemy.get(0).hp-= 40;
+        if (enemy.get(0).hp>0) {
+            System.out.println("You have stubbed " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is " + enemy.get(0).hp);
+        } else {
+            System.out.println("You have stubbed " + enemy.get(0).name + "...The hp of " + enemy.get(0).name + " is 0.");
+        }
     }
     public void useGun(Item item, Enemy enemy){
         System.out.println("You have shot with the " + item.name + "." );

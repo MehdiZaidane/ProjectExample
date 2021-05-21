@@ -43,14 +43,14 @@ import java.util.Scanner;
             stageTwo();
             stageThree();
             System.out.println("Congratulations you have successfully completed all the stages and you have saved your family.");
-        }
+        } //All the logical structure of the game
 
-
+        //game stages:
         public void setName() {
             System.out.println("Welcome!\nEnter a name for your character:");
             String characterName = sc.nextLine();
             gameCharacter.setName(characterName);
-        }
+        } //to set the name of character
         public void setAge() {
             System.out.println("Set age of character:");
             int age = sc.nextInt();
@@ -63,7 +63,7 @@ import java.util.Scanner;
                 System.out.println("You are too old to live this experience!");
                 setAge();
             }
-        }
+        }  // to set the age of character
         public void setLevel() {
             System.out.println("Set level: \nType: Easy, Medium or Hard.");
             String level = sc.nextLine();
@@ -102,16 +102,16 @@ import java.util.Scanner;
                     System.out.println("--------------------Enter a valid number!-------------------");
                     setLevel();
             }
-        }
+        }// to set the level of game
         public void stageOne() {
-            list.add("Jump");
+            list.add("Jump");//Adding to the list the movements of the character depending on where he is. The list will be printed when you type Hint
             list.add("Sing");
             list.add("Sit");
             list.add("Little walk");
             enemyToFight.add(enemyGame);
             areaGame.setDescription("You are in the middle of a large jungle with creatures and all kinds of plants.");
-            areaGame.setName("Jungle");
-            enemyGame.setName("Zombie");
+            areaGame.setName("Jungle");//Setting area of game
+            enemyGame.setName("Zombie"); // Setting stage enemy
             itemsToGet.add(knife);
             System.out.println("You have appeared in: " + areaGame.toString() + "\n(Inspect area) to find the hidden secrets of the " + areaGame.getName() + ".");
             list.add("Inspect area");
@@ -149,7 +149,7 @@ import java.util.Scanner;
             list.remove("Sleep");
             list.remove("Eat pear");
             action();
-        }
+        } // Stage one story and missions
         public void stageTwo() {
             fighting = true;
             enemyToFight.remove(enemyGame);
@@ -204,7 +204,7 @@ import java.util.Scanner;
             System.out.println("Now (Walk) for the next stage, and good luck for the hardest mission ever!");
             list.add("Walk");
             action();
-        }
+        } // Stage two of the story with different area, items, enemy etc
         public void stageThree() {
             fighting = true;
             enemyToFight.remove(vampire);
@@ -233,7 +233,7 @@ import java.util.Scanner;
             list.remove("Talk with friend");
             System.out.println("");
             stageThreeMission();
-        }
+        } // Stage three of the story with different area, items, enemy etc
 
 
 
@@ -1000,11 +1000,11 @@ import java.util.Scanner;
                 default:
                     action();
             }
-        }
+        } // The action method where all the possible movements and actions that the user can do are included. If you write "Attack", the attack method will be executed.
 
 
 
-
+        // All the big mission of each stages
         public void stageOneMission() {
             System.out.println("Who was the first president of Finland?");
             System.out.println("A= Kaarlo Juho Ståhlberg. \nB= Sauli Niinistö. \nC= Kyösti Kallio.");
@@ -1156,6 +1156,9 @@ import java.util.Scanner;
                 gameCharacter.hp = 500;
             }
         }
+
+
+
         public void fight(Enemy enemy) {
             System.out.println("Fight started...Type (Hint) to see all your fighting options!");
             while (fighting) {
@@ -1178,8 +1181,8 @@ import java.util.Scanner;
                                 break;
                         }
                     } else {
-                        System.out.println(enemy.getName() + " has attacked you. Your hp now is " + gameCharacter.hp);
                         gameCharacter.hp = gameCharacter.hp - enemy.attack;
+                        System.out.println(enemy.getName() + " has attacked you. Your hp now is " + gameCharacter.hp);
                         System.out.println(enemyToFight.get(0).name + " hp is " + enemyToFight.get(0).hp + ". Its your turn to (Attack)!");
                     }
 
@@ -1204,7 +1207,7 @@ import java.util.Scanner;
                     }
                 }
             }
-        }
+        }// the fighting method included dodge, and losing system.
     }
 
 

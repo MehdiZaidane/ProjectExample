@@ -7,7 +7,7 @@ public class Enemy {
         this.hp = h;
         this.attack = a;
     }
-
+// basic getter and setter for enemy class
     public String getName() {
         return name;
     }
